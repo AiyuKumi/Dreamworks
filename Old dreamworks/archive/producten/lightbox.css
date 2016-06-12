@@ -1,0 +1,245 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>404 - Page not found | Proximedia</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- stylesheets -->
+<link type="text/css" rel="stylesheet" href="http://www.proximedia.com/404/css/reset.css">
+<link type="text/css" rel="stylesheet" href="http://www.proximedia.com/404/css/style.css">
+
+<!-- javascripts -->
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://www.proximedia.com/404/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://www.proximedia.com/404/js/jquery.backgroundSize.js"></script>
+<script type="text/javascript" src="http://www.proximedia.com/404/js/jquery.parallax-0.2.js"></script>
+<script type="text/javascript" src="http://www.proximedia.com/404/js/konami.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#button").click(function(e){
+		$.getScript('http://hi.kickassapp.com/kickass.js');
+	});
+	
+	$("#contactbox").css("top",-700);
+	
+	$("#contact_link").click(function(e){
+		e.preventDefault();
+		$("#contactbox").animate({
+			top: -20
+		}, 3000, "easeOutElastic");
+	});
+	
+	$("#back").click(function(e){
+		e.preventDefault();
+		$("#contactbox").animate({
+			top: -700
+		}, 1000, "easeInBack");
+	});
+	
+	$(".large,.small,.background").css({backgroundSize: "cover"});
+	$("#shoot").click(function(e){
+		e.preventDefault();
+	});
+	
+// Parallax positions
+  var winwidth = $(window).width();
+  var winheight = $(window).height();
+
+  var background_left = -100;
+  var background_top = -100;
+  var large_right = winwidth/4-150;
+  var large_top = winheight/7;
+  var small_right = winwidth/8-200;
+  var small_top = 150;
+  
+  if (winheight > 750) {
+	large_right = winwidth/4;
+    large_top = winheight/10-150;
+    small_right = winwidth/4-200;
+	small_top = 150;
+	$('#handy .large').css({
+		top:50,
+		right:'25%'
+	});
+	$('#handy .small').css({
+		right:'5%',
+		bottom:'20%'
+	});
+  }
+  
+  if (winheight < 750) {
+	  $('#handy .large').effect("scale",{percent: 80});
+	  $('#handy .large #home_link').css({left:425,bottom:220}).effect("scale",{percent: 80});
+	  $('#handy .large #contact_link').css({left:410,bottom:190}).effect("scale",{percent: 80});
+	  $('#handy .small').effect("scale",{percent: 90});
+  }
+
+  $('div#header-parallax.parallax').parallax({
+    'elements': [
+      // Handy
+      {
+        // initialposition Handy Background
+        'selector': 'div#header-parallax  div#handy.p-effect .background',
+        'properties': {
+          'x': {
+            'left': {
+              'initial': background_left,
+              'multiplier': 0.1,
+              'invert': false
+            }
+          },
+          'y': {
+            'top': {
+              'initial': background_top,
+              'multiplier': 0.1,
+              'invert': false
+            }
+          }
+        }
+      },
+	  {
+		// initialposition Handy Device
+        'selector': 'div#header-parallax  div#handy.p-effect #beup',
+        'properties': {
+          'x': {
+            'left': {
+              'initial': 5,
+              'multiplier': 0.1,
+              'invert': true
+            }
+          },
+          'y': {
+            'top' : {
+              'initial': 5,
+              'multiplier': 0.1,
+              'invert': true
+            }
+          }
+        }
+      },
+	  {
+		// initialposition Handy Device
+        'selector': 'div#header-parallax  div#handy.p-effect .large',
+        'properties': {
+          'x': {
+            'right': {
+              'initial': large_right,
+              'multiplier': 0.15,
+              'invert': false
+            }
+          },
+          'y': {
+            'top' : {
+              'initial': large_top,
+              'multiplier': 0.2,
+              'invert': true
+            }
+          }
+        }
+      },
+      {
+        // initialposition Handy Device
+        'selector': 'div#header-parallax  div#handy.p-effect .small',
+        'properties': {
+          'x': {
+            'right': {
+              'initial': small_right,
+              'multiplier': 0.3,
+              'invert': false
+            }
+          },
+          'y': {
+            'bottom' : {
+              'initial': small_top,
+              'multiplier': 0.2,
+              'invert': false
+            }
+          }
+        }
+      },
+      {
+        // initialposition Handy Device
+        'selector': 'div#header-parallax  #bottom-left',
+        'properties': {
+          'x': {
+            'left': {
+              'initial': 10,
+              'multiplier': 0.01,
+              'invert': true
+            }
+          }
+		}
+	  },
+      {
+        // initialposition Handy Device
+        'selector': 'div#header-parallax  #bottom-right',
+        'properties': {
+          'x': {
+            'right': {
+              'initial': -50,
+              'multiplier': 0.05,
+              'invert': false
+            }
+          }
+		}
+	  }
+    ]
+  });
+});
+</script>
+</head>
+<body>
+  <div class="parallax" id="header-parallax">
+    <div class="header-parallax-container p-effect" id="handy">
+      <div id="beup"></div>
+      <div class="background"></div>
+      <div class="large">
+      	<a href="/" id="home_link" class="hide-text">Home</a>
+        <a href="#" id="contact_link" class="hide-text">Contact webmaster</a>
+      </div>
+      <div class="small">
+      	<a href="http://www.proximedia.com" target="_blank" class="hide-text">Need a website ?</a>
+      </div>
+    </div>
+    <div id="bottom-left">
+    	<a id="button" href="#" class="hide-text">Kick Ass</a>
+        <div class="social_links">
+            <a href="http://www.facebook.com/pages/Proximedia-Group/50940892415" target="_blank" class="button_facebook"><img src="http://www.proximedia.com/404/images/icon-facebook.png" width="27" height="27" border="0" alt="Visit us on Facebook"></a>
+            <a href="https://twitter.com/Proximedia3" target="_blank" class="button_twitter"><img src="http://www.proximedia.com/404/images/icon-twitter.png" width="27" height="27" border="0" alt="Visit us on Twitter"></a>
+            <a href="http://www.linkedin.com/company/proximedia" target="_blank" class="button_linkedin"><img src="http://www.proximedia.com/404/images/icon-linkedin.png" width="27" height="27" border="0" alt="Visit us on LinkedIn"></a>
+            <a href="mailto:info@proximedia.be" class="button_email"><img src="http://www.proximedia.com/404/images/icon-email.png" width="27" height="27" border="0" alt="E-mail us"></a>
+        </div>
+    </div>
+    <div id="bottom-right"></div>
+  </div>
+<div id="contactbox">
+	<form action="MAILTO:info@proximedia.be" method="post" enctype="text/plain">
+        <div class="form_item"><label for="name">Name</label><input id="name" name="name" class="field"></div>
+        <div class="form_item"><label for="phone">Phone</label><input id="phone" name="phone" class="field"></div>
+        <div class="form_item"><label for="email">E-mail</label><input id="email" name="email" class="field"></div>
+        <div class="form_item textarea"><label for="message">Message</label><textarea id="message" name="message" class="field"></textarea></div>
+        <div class="form_submit"><input type="submit" id="submit" value="Send"></div>
+  </form>
+    <a href="#" id="back">back</a>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	// search form hide label
+    $("#contactbox .field")
+        .bind("focus.labelFx", function(){
+            $(this).prev().hide();
+        })
+        .bind("blur.labelFx", function(){
+            $(this).prev()[!this.value ? "show" : "hide"]();
+        })
+        .trigger("blur.labelFx");
+});
+</script>
+</body>
+</html>
